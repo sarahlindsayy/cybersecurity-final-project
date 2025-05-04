@@ -1,0 +1,36 @@
+<!--main html code source: Professor Eddy's login.html code-->
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+
+        <!-- allows user to see error and success messages for registering, source: https://stackoverflow.com/questions/41369105/django-bootstrap-alerts-not-working-as-expected -->
+        {% if message %}
+            <div class="alert alert-warning mt-3" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <form action="{{ url_for('.login') }}" method="POST"
+              id="login_form">
+            <div class="form-group">
+                <label for="username">Username:</label><input
+                    class="form-control" type="text" id="username"
+                    name="username" required><br/>
+                <label for="password">Password:</label><input
+                    class="form-control" type='password' id="password"
+                    name="password" required>
+                <button type="submit" class="btn btn-primary mt-4">
+                    Submit
+                </button>
+            </div>
+        </form>
+        <!-- link to redirect to login page in case user already has account, source: Professor Eddy's home.html-->
+        <p class="mt-2"><a href="{{ url_for('register') }}">Don't have an account? Create one here.</a></p>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<!--main html code source: Professor Eddy's home.html code-->
+{% extends "layout.html" %}
+{% block content %}
+
+<div id="lesson-choices" class="card">
+    <div class="card-body text-center">
+        <h2>Welcome to Catamount Community Bank</h2>
+        <!--creating buttons for login and register which redirect user to the appropriate pages-->
+        <!--source: https://stackoverflow.com/questions/2906582/how-do-i-create-an-html-button-that-acts-like-a-link-->
+        <div class="mt-4">
+            <!-- source for button coloring: https://www.w3schools.com/bootstrap4/bootstrap_buttons.asp -->
+            <a href="{{ url_for('login') }}" class="btn btn-dark mb-3" style="width: 150px;">Login</a><br>
+            <a href="{{ url_for('register') }}" class="btn btn-dark" style="width: 150px;">Register</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

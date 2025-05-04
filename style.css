@@ -1,0 +1,61 @@
+/* source: Professor Eddy's style.css */
+main {
+    flex: 1;
+}
+
+#masthead {
+    background-color: #007155;
+    padding: 20px;
+    border-bottom: #485f6e 1px solid;
+    width: 100%;
+}
+
+#masthead img {
+    margin-right: 1em;
+}
+
+#masthead h1 {
+    font-family: serif;
+    display: inline-block;
+    color: white;
+}
+
+.tagline {
+    display: inline-block;
+    margin-top: 1em;
+    font-style: italic;
+}
+
+footer {
+    margin-top: 4em;
+    padding: 2em 20px 8em;
+    width: 100%;
+    background-color: #D0A01F;
+    color: #eee;
+    font-family: serif;
+}
+
+#content{
+    padding: 1.5em 3em;
+}
+
+.uvm-green {
+    background-color: #D0A01F;
+    color: white;
+}
+
+#lesson-choices {
+    margin-bottom: 15rem;
+}
+
+/* source: https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+html, body {
+    height: 100%;
+}
+
+/* source: https://stackoverflow.com/questions/33147303/flex-column-height100-inside-100vh-height-container */
+#page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+}

@@ -1,0 +1,75 @@
+<!--main html code source: Professor Eddy's login.html code-->
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                            User Registration Instructions
+                        </button>
+                    </h5>
+                    <div id="collapseOne"
+                         class="collapse {% if not search_term %}show{% endif %}"
+                         aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>
+                                Welcome to Catamount Community Bank's registration portal.
+                                Please enter a username and a strong password to create your account.
+                            </p>
+                            <p><strong>Password Requirements:</strong></p>
+                            <ul> <!-- source: https://stackoverflow.com/questions/44608346/how-properly-i-refer-to-a-li-in-the-css-should-i-use-e-g-ul-li-or-just-ul-l -->
+                                <li>Between 8 and 25 characters</li>
+                                <li>At least one uppercase letter</li>
+                                <li>At least one lowercase letter</li>
+                                <li>At least one number</li>
+                                <li>At least one special character</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- allows user to see error and success messages for registering, source: https://stackoverflow.com/questions/41369105/django-bootstrap-alerts-not-working-as-expected -->
+        {% if message %}
+            <div class="alert alert-warning mt-3" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <div class="row mt-3">
+            <div class="col md-6">
+                <form action="{{ url_for('register') }}" method="POST" id="register_form">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input class="form-control" type="text" id="username" name="username" required><br/>
+                        <label for="password">Password:</label>
+                        <input class="form-control" type="password" id="password" name="password">
+                        <div class="mt-2">
+                            Password Generated: {{ pw_generated or '' }}
+                        </div>
+                        <div class="mt-2">
+                            <button type="submit" class="btn btn-dark mt-4" name="action" value="generate">
+                                Generate Strong & Secure Password
+                            </button>
+                        </div>
+                        <button type="submit" class="btn btn-success mt-4" name="action" value="register">
+                            Register
+                        </button>
+                    </div>
+                </form>
+                <!-- link to redirect to login page in case user already has account, source: Professor Eddy's home.html-->
+                <p class="mt-2"><a href="{{ url_for('login') }}">Already have an account? Login here.</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
